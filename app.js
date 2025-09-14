@@ -35,6 +35,28 @@ app.post("/webhook", (req, res) => {
   res.sendStatus(200);
 });
 
+// ✅ Política de privacidad
+app.get("/privacy", (req, res) => {
+  res.type("html").send(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Política de Privacidad</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; padding: 20px;">
+      <h1>Política de Privacidad</h1>
+      <p>En <strong>Brodiemx</strong> respetamos tu privacidad.</p>
+      <p>La información que recibimos a través de esta aplicación 
+      (como mensajes y números de teléfono) se utiliza únicamente 
+      para responder a tus consultas.</p>
+      <p>No compartimos tu información con terceros.</p>
+      <p>Si tienes dudas, contáctanos en: contacto@brodiemx.com</p>
+    </body>
+    </html>
+  `);
+});
+
 // Servidor
 app.listen(port, () => console.log(`🚀 Servidor corriendo en puerto ${port}`));
 
@@ -49,4 +71,5 @@ const html = `
   <section>🎉 Webhook activo en Render</section>
 </body>
 </html>
-`;  // <- Este backtick final es obligatorio
+`; // <- Este backtick final es obligatorio
+
