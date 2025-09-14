@@ -35,7 +35,7 @@ app.post("/webhook", (req, res) => {
   res.sendStatus(200);
 });
 
-// ✅ Política de privacidad
+// ✅ Política de privacidad (formal/legal)
 app.get("/privacy", (req, res) => {
   res.type("html").send(`
     <!DOCTYPE html>
@@ -43,33 +43,55 @@ app.get("/privacy", (req, res) => {
     <head>
       <meta charset="UTF-8">
       <title>Política de Privacidad</title>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
+        h1, h2 { color: #333; }
+      </style>
     </head>
-    <body style="font-family: Arial, sans-serif; padding: 20px;">
+    <body>
       <h1>Política de Privacidad</h1>
-      <p>En <strong>Brodiemx</strong> respetamos tu privacidad.</p>
-      <p>La información que recibimos a través de esta aplicación 
-      (como mensajes y números de teléfono) se utiliza únicamente 
-      para responder a tus consultas.</p>
-      <p>No compartimos tu información con terceros.</p>
-      <p>Si tienes dudas, contáctanos en: contacto@brodiemx.com</p>
+      <p>En <strong>Brodiemx</strong> respetamos y protegemos la privacidad de nuestros usuarios. 
+      Esta política explica cómo recopilamos, usamos y protegemos tu información.</p>
+
+      <h2>1. Información que recopilamos</h2>
+      <ul>
+        <li>Números de teléfono asociados a mensajes de WhatsApp.</li>
+        <li>Mensajes enviados a través de la integración con WhatsApp Business API.</li>
+        <li>Datos técnicos mínimos necesarios para el funcionamiento del servicio.</li>
+      </ul>
+
+      <h2>2. Uso de la información</h2>
+      <p>La información recopilada se utiliza únicamente para:</p>
+      <ul>
+        <li>Responder a tus consultas o mensajes.</li>
+        <li>Mejorar la calidad del servicio.</li>
+        <li>Mantener la comunicación entre la empresa y los usuarios.</li>
+      </ul>
+
+      <h2>3. Compartición de datos</h2>
+      <p>No compartimos, vendemos ni alquilamos tu información a terceros, 
+      salvo que sea requerido por ley.</p>
+
+      <h2>4. Retención de datos</h2>
+      <p>Conservamos la información únicamente durante el tiempo necesario 
+      para cumplir con los fines descritos en esta política.</p>
+
+      <h2>5. Seguridad</h2>
+      <p>Implementamos medidas de seguridad técnicas y organizativas 
+      para proteger tu información contra accesos no autorizados.</p>
+
+      <h2>6. Derechos del usuario</h2>
+      <p>Como usuario, tienes derecho a acceder, rectificar o solicitar la eliminación de tus datos. 
+      Para ejercer estos derechos, contáctanos en el correo indicado abajo.</p>
+
+      <h2>7. Contacto</h2>
+      <p>Si tienes dudas sobre esta política de privacidad, puedes escribirnos a:<br>
+      <strong>📧 contacto@brodiemx.com</strong></p>
+
+      <p><em>Última actualización: Septiembre 2025</em></p>
     </body>
     </html>
   `);
 });
 
-// Servidor
-app.listen(port, () => console.log(`🚀 Servidor corriendo en puerto ${port}`));
-
-// HTML raíz
-const html = `
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Hello from Render!</title>
-</head>
-<body>
-  <section>🎉 Webhook activo en Render</section>
-</body>
-</html>
-`; // <- Este backtick final es obligatorio
 
